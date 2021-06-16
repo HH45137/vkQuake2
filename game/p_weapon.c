@@ -791,6 +791,9 @@ void Weapon_RocketLauncher_Fire (edict_t *ent)
 		radius_damage *= 4;
 	}
 
+	edict_t* rocketTarget = findradius(ent, ent->s.origin, 9999.0f);		//Return a distance player min entity
+	Com_Printf("x:%d y:%d z:%d \n", &rocketTarget->client->v_angle[0], &rocketTarget->client->v_angle[1], &rocketTarget->client->v_angle[2]);
+
 	AngleVectors (ent->client->v_angle, forward, right, NULL);
 
 	VectorScale (forward, -2, ent->client->kick_origin);
